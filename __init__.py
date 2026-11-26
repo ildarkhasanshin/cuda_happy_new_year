@@ -90,8 +90,7 @@ class Command:
         dlg_proc(self.h_dlg, DLG_CTL_PROP_SET, index=n, prop={
             'name': 'tree',
             'a_r': ('',']'),
-            'a_b': ('',']'),
-            'on_menu': 'cuda_weather.tree_on_menu',
+            'a_b': ('',']')
         })
 
         self.tree = dlg_proc(self.h_dlg, DLG_CTL_HANDLE, index=n)
