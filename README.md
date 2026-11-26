@@ -1,2 +1,1 @@
-# cuda_happy_new_year
-Plugin for CudaText | Conclusion of the remaining days before the New Year
+Plugin for CudaText | Display in sidebar showing the number of days until the New Year, along with details on how it is celebrated in various countries around the world.
