@@ -1,0 +1,20 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: ildar r. khasanshin <ildar.khasanshin@gmail.com>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.7\n"
+
+# cuda_happy_new_year
+# Copyright (C) 2026
+# ildar r. khasanshin <ildar.khasanshin@gmail.com>, 2026.
+#
+#: __init__.py:89
+msgid "There are left until the New Year (days)"
+msgstr "До Нового года осталось (дней)"

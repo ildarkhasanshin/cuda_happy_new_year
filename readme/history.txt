@@ -1,2 +1,5 @@
+2026.11.26
+[*] now info show in sidebar
+
 2021.12.16
 initial

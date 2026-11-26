@@ -1,10 +1,16 @@
 [info]
 title=HappyNewYear!
-desc=Conclusion of the remaining days before the New Year
+desc=Display in sidebar showing the number of days until the New Year, along with details on how it is celebrated in various countries around the world.
 type=cudatext-plugin
 subdir=cuda_happy_new_year
 homepage=https://github.com/ildarkhasanshin/cuda_happy_new_year
 
 [item1]
 section=events
-events=on_start
+events=on_start2
+
+[item2]
+section=commands
+caption=HappyNewYear!\Config
+method=config
+menu=o
