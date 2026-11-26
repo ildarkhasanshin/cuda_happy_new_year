@@ -3,6 +3,7 @@ from datetime import datetime
 from cudatext import *
 import locale
 import random
+import textwrap
 
 from cudax_lib import get_translation
 _ = get_translation(__file__)
@@ -31,24 +32,10 @@ class Command:
         else:
             return False
 
-    def word_division(self, text, count = 3):
-        words = text.split()
-        i = 0
-        words_ = ''
+    def print_wrapped(self, text, width=25):
         res = []
-        for word in words:
-            i = i + 1
-            words_ = words_ + word + ' '
-            if i == count:
-                res.append(words_)
-                i = 0
-                words_ = ''
-        len_ = len(words) - len(res) * 3
-        if (len_ > 0):
-            words_ = ''
-            for word_ in words[len(words) - len_:len(words)]:
-                words_ = words_ + word_ + ' '
-            res.append(words_)
+        for line in textwrap.wrap(text, width=width, break_long_words=False):
+            res.append(line)
 
         return res
 
@@ -58,12 +45,10 @@ class Command:
         if os.path.isfile(path):
             with open(path, 'r', encoding = 'utf-8') as file:
                 lines = file.readlines()
-                if not lines:
-                    return None
-                line = random.choice(lines).rstrip('\n')
-                res = self.word_division(line)
+            if not lines:
+                return None
 
-                return res
+            return self.print_wrapped(random.choice(lines).rstrip('\n'))
         else:
             print(f'error: file "{fn}" not found')
 
@@ -71,7 +56,7 @@ class Command:
         return '{}'.format((datetime(int(datetime.now().strftime('%Y')) + 1, 1, 1) - datetime.today()).days)
 
     def get_msg(self):
-        return self.word_division(_('There are left until the New Year (days)') + ': ' + self.get_days())
+        return self.print_wrapped(_('There are left until the New Year (days)') + ': ' + self.get_days())
 
     def is_december(self):
         return int(datetime.now().strftime('%m')) == 12

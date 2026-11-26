@@ -1,4 +1,5 @@
 2026.11.26
+[*] minor fixes
 [*] now info show in sidebar
 
 2021.12.16
