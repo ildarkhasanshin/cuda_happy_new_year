@@ -11,11 +11,13 @@ _ = get_translation(__file__)
 class Command:
     fn_config = None
     only_in_december = 1
+    wrap_width = 25
     tree = None
     title = 'HappyNewYear!'
 
     def on_start2(self, ed_self):
         self.fn_config = os.path.join(app_path(APP_DIR_SETTINGS), 'cuda_happy_new_year.ini')
+        self.wrap_width = self.get_wrap_width()
         self.only_in_december = self.get_only_in_december()
         if not self.only_in_december:
             self.init_panel()
@@ -32,9 +34,17 @@ class Command:
         else:
             return False
 
-    def print_wrapped(self, text, width=25):
+    def get_wrap_width(self):
+        wrap_width = ini_read(self.fn_config, 'options', 'wrap_width', '-')
+        if (wrap_width == '-'):
+            ini_write(self.fn_config, 'options', 'wrap_width', str(self.wrap_width))
+            wrap_width = self.wrap_width
+
+        return wrap_width
+
+    def print_wrapped(self, text):
         res = []
-        for line in textwrap.wrap(text, width=width, break_long_words=False):
+        for line in textwrap.wrap(text, width=int(self.wrap_width), break_long_words=False):
             res.append(line)
 
         return res

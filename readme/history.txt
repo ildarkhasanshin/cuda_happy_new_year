@@ -1,4 +1,5 @@
 2026.11.26
+[+] param "wrap_width" in config
 [*] minor fixes
 [*] now info show in sidebar
 
